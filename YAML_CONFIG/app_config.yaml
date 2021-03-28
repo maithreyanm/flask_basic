@@ -1,0 +1,16 @@
+AppConfig:
+  Name: FlaskApp
+  ConfigMode: DEV     #[DEV|TEST|PROD]
+
+Flask-Config:
+    FLASK_APP: main.py
+    SECRET_KEY:
+
+Database-Connections:
+    MySQL:
+        APP:
+            DEV:
+                DB_HOST:
+                DB_USER:
+                DB_PASS:
+                DB_NAME:

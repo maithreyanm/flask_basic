@@ -1,0 +1,1 @@
+'''here configuration for external api calls can be done here'''
