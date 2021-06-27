@@ -27,7 +27,7 @@ class DataBaseConfig:
         flapp.config['SQLALCHEMY_DATABASE_URI'] = cls.db_url
 
         flapp.config['SQLALCHEMY_BINDS'] = {
-            "app_db": cls.db_url,
+            "sql_db": cls.db_url,
         }
 
         flapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

@@ -9,13 +9,18 @@ class AppFactory:
     @classmethod
     def create_app(cls, config=None):
         try:
-            flapp = Flask(__name__)
             from library.object_broker import ob
+            from flask import Flask
+            flapp = Flask(__name__)
             ob['flapp'] = flapp
 
             if config is None:
                 from config import Config
                 config = Config()
+
+            from app.api.api import api_blueprint
+            flapp.register_blueprint(
+                    api_blueprint)  # registering the api using blueprint. register here to activate the api
 
             ob['config'] = config
             flapp.config.from_object(config)

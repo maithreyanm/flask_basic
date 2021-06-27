@@ -1,5 +1,5 @@
 AppConfig:
-  Name: FlaskApp
+  Name: FlaskBasicApp
   ConfigMode: DEV     #[DEV|TEST|PROD]
 
 Flask-Config:

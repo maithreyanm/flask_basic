@@ -12,7 +12,7 @@ class Config(ConfigHelper):
         self.set_env_vars(root_path=rt.app_root(), env_name='.env') #.env file name
 
         # An APP_NAME env var must be set and it MUST agree with app_name_check
-        self.app_name_check = 'FlaskApp'
+        self.app_name_check = 'FlaskBasicApp'
 
         self.config_mode_list = [
             'DEV',  # developer
