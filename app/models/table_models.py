@@ -1,6 +1,6 @@
 '''here we are defining the tables for our project..'''
 
-from sql_db.sql_db import sql_db
+from sqla_stack.fl_sqla import sql_db
 from app.models.base import BaseModel
 
 

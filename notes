@@ -1,0 +1,1 @@
+this flask does not create tables into db. so you have to create it manually. Then it will work.

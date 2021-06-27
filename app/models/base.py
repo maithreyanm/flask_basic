@@ -2,7 +2,7 @@
 simply the field names for other tables which would be common can be written here as a base'''
 
 from sqlalchemy.ext import declarative as decl
-from sql_db.sql_db import sql_db
+from sqla_stack.fl_sqla import sql_db
 
 Base = decl.declarative_base()
 
