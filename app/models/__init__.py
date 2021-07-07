@@ -40,5 +40,4 @@ class DataBaseConfig:
         cls.db_user = config.yaml_config.path_get(f'{cls.config_mode}/DB_USER', ydict)
         cls.db_pwd = config.yaml_config.path_get(f'{cls.config_mode}/DB_PASS', ydict)
         cls.db_name = config.yaml_config.path_get(f'{cls.config_mode}/DB_NAME', ydict)
-        cls.db_url = f"mysql+mysqlconnector://{cls.db_user}:{cls.db_pwd}@" \
-                     f"{cls.db_host}/{cls.db_name}"
+        cls.db_url = f"mysql://{cls.db_user}:{cls.db_pwd}@{cls.db_host}/{cls.db_name}"

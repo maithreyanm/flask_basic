@@ -1,18 +1,26 @@
-from app.models.table_models import User2
-from sqla_stack.fl_sqla import sql_db
+from app.models.table_models import User_2
+# from sqla_stack.fl_sqla import sql_db
 from flask import Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+
+flapp = Flask(__name__)
+sql_db = SQLAlchemy(flapp)
+
+
+
 
 
 class AppFactory:
 
     @classmethod
-    def create_app(cls, config=None):
+    def create_app(cls, config=None, User2=None):
         try:
             from library.object_broker import ob
             from flask import Flask
-            flapp = Flask(__name__)
+            # flapp = Flask(__name__)
             ob['flapp'] = flapp
+            # sql_db = SQLAlchemy(flapp)
 
             if config is None:
                 from config import Config
@@ -33,7 +41,7 @@ class AppFactory:
             sql_db.init_app(flapp)  # here we are importing the db .. we use mysql and sqlalchemy
             with flapp.app_context():
                 sql_db.create_all()  # creating the tables in the db  #disable this after creating in production
-                # User2.extract_sample_values_from_sample_data()
+                # User_2.extract_sample_values_from_sample_data()
                 # the above is a method to load sample values into db when server is stared. disable this if data's
                 # are loaded in the future
 
