@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
 flapp = Flask(__name__)
-sql_db = SQLAlchemy(flapp)
+# sql_db = SQLAlchemy(flapp)
 
 
 
@@ -38,9 +38,9 @@ class AppFactory:
             flapp.register_blueprint(
                 api_blueprint)  # registering the api using blueprint. register here to activate the api
 
-            sql_db.init_app(flapp)  # here we are importing the db .. we use mysql and sqlalchemy
-            with flapp.app_context():
-                sql_db.create_all()  # creating the tables in the db  #disable this after creating in production
+            # sql_db.init_app(flapp)  # here we are importing the db .. we use mysql and sqlalchemy
+            # with flapp.app_context():
+            #     sql_db.create_all()  # creating the tables in the db  #disable this after creating in production
                 # User_2.extract_sample_values_from_sample_data()
                 # the above is a method to load sample values into db when server is stared. disable this if data's
                 # are loaded in the future

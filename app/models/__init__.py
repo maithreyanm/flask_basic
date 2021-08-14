@@ -1,6 +1,8 @@
 '''getting the db cocnfigurations from yaml via config.py. written in init can be used anywhere in models'''
 
 from config import Config
+from sqlalchemy import MetaData, create_engine
+from sqlalchemy_utils import database_exists, create_database
 
 config = Config()  # config class to config object
 
@@ -30,7 +32,12 @@ class DataBaseConfig:
             "sql_db": cls.db_url,
         }
 
+        engine = create_engine(cls.db_url)
+        if not database_exists(engine.url):
+            create_database(engine.url)
+
         flapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
     @classmethod
     def db_config(cls):
@@ -40,4 +47,4 @@ class DataBaseConfig:
         cls.db_user = config.yaml_config.path_get(f'{cls.config_mode}/DB_USER', ydict)
         cls.db_pwd = config.yaml_config.path_get(f'{cls.config_mode}/DB_PASS', ydict)
         cls.db_name = config.yaml_config.path_get(f'{cls.config_mode}/DB_NAME', ydict)
-        cls.db_url = f"mysql://{cls.db_user}:{cls.db_pwd}@{cls.db_host}/{cls.db_name}"
+        cls.db_url = f"mysql+pymysql://{cls.db_user}:{cls.db_pwd}@{cls.db_host}/{cls.db_name}"
